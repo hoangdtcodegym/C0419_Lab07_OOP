@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THFunnyCircleNC</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1422px" height="721px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    function creatCircle() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let radius = Math.floor(Math.random() * 80);
+        let x = Math.round(Math.random() * window.innerWidth);
+        let y = Math.round(Math.random() * window.innerHeight);
+        let vx = 5;
+        let vy = 5;
+
+        function getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+        function getRandomColor() {
+            var red = getRandomHex();
+            var green = getRandomHex();
+            var blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+        let color = getRandomColor();
+
+        function moveCircle() {
+            setInterval(function () {
+                if (x < (0 + radius) || x > (1422 - radius)) {
+                    vx = -vx;
+                }
+                if (y < (0 + radius) || y > (721 - radius)) {
+                    vy = -vy;
+                }
+                x = x + vx;
+                y = y + vy;
+                ctx.beginPath();
+                ctx.clearRect(0, 0, 1422, 721);
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }, 70);
+        }
+        moveCircle();
+    }
+    creatCircle();
+</script>
+</body>
+</html>
