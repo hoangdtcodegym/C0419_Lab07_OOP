@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circles</title>
+</head>
+<body>
+
+
+<canvas id="myCanvas" width="1000" height="600" style="border:solid 1px black"></canvas>
+<div class="divbtn">
+    <button type="button" id="startgame" onclick="startGame()">Start Game</button>
+    <button type="button" id="stopgame" onclick="stopGame()">Stop Game</button>
+</div>
+<script>
+    function Circle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green + ")";
+
+    }
+
+    function drawCircle() {
+        let c = document.getElementById("myCanvas");
+        if ((x > (gameWidth - radius)) || (x <= radius)) vx = 0 - vx;
+
+        if ((y > (gameHeight - radius)) || (y <= radius)) vy = 0 - vy;
+        x += vx;
+        y += vy;
+        console.log(x, y);
+        let circle1 = new Circle(x, y, radius);
+        let ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, gameWidth, gameHeight);
+        ctx.beginPath();
+        ctx.arc(circle1.x, circle1.y, circle1.radius, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+
+    let myGame;
+    let x, y;
+    let vx = 8, vy = 5;
+    let radius = 30;
+    let gameWidth = parseFloat(document.getElementById("myCanvas").getAttribute("width"));
+    let gameHeight = parseFloat(document.getElementById("myCanvas").getAttribute("height"));
+    let color = getRandomColor();
+    x = Math.random() * (gameWidth - radius) + radius;
+    y = Math.random() * (gameHeight - radius) + radius;
+
+
+    function startGame() {
+        myGame = setInterval(drawCircle, 30);
+    }
+
+    function stopGame() {
+        clearInterval(myGame);
+    }
+
+</script>
+
+</body>
+<style>
+    .divbtn {
+        padding-left: 400px;
+    }
+
+    button {
+        margin: 10px;
+    }
+</style>
+</html>
