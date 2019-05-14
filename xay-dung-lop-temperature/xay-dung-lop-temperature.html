@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Temperature = function (C) {
+        this.C = C;
+        this.F = function () {
+            return alert("Do F la: " + (1.8 * this.C + 32));
+        };
+        this.kenvin = function () {
+            return alert("Do Kenvin la: " + (this.C + 271.15));
+        };
+    };
+    let C = new Temperature(25);
+    C.F();
+    C.kenvin();
+</script>
+</body>
+</html>
