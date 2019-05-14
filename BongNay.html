@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="BongNay.js"></script>
+</head>
+<body>
+<canvas id="canvas" width="400px" height="300px" style="border: 1px solid gray;"></canvas>
+<script>
+    var canvas;
+    var context;
+    var ball;
+    window.onload = function(){
+        canvas = document.getElementById("canvas");
+        context = canvas.getContext("2d");
+        ball = new Ball(canvas.width,canvas.height);
+        setInterval(update,10);
+    }
+    function draw(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        ball.draw(context);
+    }
+    function update(){
+        ball.move();
+        ball.checkCollision();
+        draw();
+    }
+</script>
+
+
+</body>
+</html>
