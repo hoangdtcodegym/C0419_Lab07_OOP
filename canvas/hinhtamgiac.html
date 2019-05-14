@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hinh tam giac</title>
+</head>
+<body>
+<canvas id="tamgiac" width="250" height="150"></canvas>
+<script>
+    let triangle = document.getElementById("tamgiac").getContext("2d");
+    let width = 150;
+    let height = 100;
+    let padding = 20;
+    triangle.beginPath();
+    triangle.moveTo(padding + width/2, padding);
+    triangle.lineTo(padding + width, height + padding);
+    triangle.lineTo(padding, height + padding);
+    triangle.closePath();
+    triangle.stroke();
+</script>
+</body>
+</html>
