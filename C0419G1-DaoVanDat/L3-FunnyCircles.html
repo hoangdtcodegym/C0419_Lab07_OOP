@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+
+
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width='1000px' height='500px' style="border: 1px solid #d3d3d3;"></canvas>
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    //khởi tạo mảng để lưu trữ các quả bóng
+    let circleArray = [];
+    //định nghĩa đối tượng hình tròn
+    function Circle(x, y, vx, vy, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.vx = vx;
+        this.vy = vy;
+        this.radius = radius;
+        this.color = color;
+        this.draw = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+        };
+        this.move = function () {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x+this.radius > canvas.width || this.x-this.radius< 0) this.vx = -this.vx;
+            if (this.y+this.radius > canvas.height || this.y-this.radius < 0) this.vy = -this.vy;
+            this.draw;
+        };
+    }
+
+    //hàm để chọn ngẫu nhiên các số từ 0 đến 255
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+    //hàm để chọn ngẫu nhiên màu (rgb('red','green','blue') dựa vào mã ngẫu nhiên (0-255) đã chọn ở trên
+
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return 'rgb(' + red + ',' + green + ',' + blue + ')';
+    }
+
+    function createCircle() {
+        let x;
+        let y;
+        let radius;
+        let color;
+        let vx;
+        let vy;
+        let circle = new Circle(x, y, vx, vy, radius, color);
+        circle.x = Math.floor(Math.random() * canvas.width/2+50);
+        circle.y = Math.floor(Math.random() * canvas.height/2+50);
+        let a = Math.floor(Math.random() * 10 + 5);
+        circle.vx = a;
+        circle.vy = -a;
+        circle.radius = Math.floor(Math.random() * 30+10);
+        circle.color = getRandomColor();
+        return circle;
+    }
+    function drawMultipleCircles(numbers) {
+        for (let i = 0; i < numbers; i++) {
+            let circle = createCircle();
+            //drawCircle(circle);
+            circle.draw();
+            circleArray.push(circle);
+        }
+    }
+    //hàm  start() để gọi phương thức move của đối tượng Circle
+    function start() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i=0;i<circleArray.length;i++) {
+            let circle=circleArray[i];
+            circle.move();
+            circle.draw();
+        }
+    }
+
+    // gọi hàm vẽ nhiều hình tròn
+    drawMultipleCircles(20);
+    //hàm setInterval() sẽ gọi lại hàm sau 1 khoảng milisecond liên tục cho đến khi mình gọi hàm clearInterval()
+    setInterval(start,80);
+</script>
+</body>
+</html>
