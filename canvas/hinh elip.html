@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elip</title>
+</head>
+<body>
+<canvas id="canvas" width="2000" height="1000"></canvas>
+<script>
+    let ctx = document.getElementById("canvas").getContext('2d');
+    ctx.beginPath();
+    ctx.ellipse(500, 400, 100, 375, Math.PI / 4, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.stroke();
+
+</script>
+</body>
+</html>
