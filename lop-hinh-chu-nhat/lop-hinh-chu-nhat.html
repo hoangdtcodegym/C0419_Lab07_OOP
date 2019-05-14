@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300px" height="150px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+        let Rectangle = function (x, y, width, height) {
+            // Khai bao va khoi tao doi tuong kieu Rectangle
+            this.x = x;
+            this.y = y;
+            this.height = height;
+            this.width = width;
+            // Thay doi chieu dai.
+            this.changeHeight = function (height) {
+                this.height = height;
+            };
+            // Thay doi chieu rong.
+            this.changeWidth = function (width) {
+                this.width = width;
+            };
+            // In ra man hinh chu vi.
+            this.getPerimeter = function () {
+                return alert("Chu vi la: " + (this.height + this.width) * 2);
+            };
+            // In ra man hinh dien tich.
+            this.getArea = function () {
+                return alert("Dien tich la: " + this.height * this.width);
+            };
+            // Hien thi hinh chu nhat.
+            this.createRectangle = function () {
+                let rectangle = document.getElementById("myCanvas").getContext("2d");
+                rectangle.rect(this.x, this.y, this.width, this.height);
+                rectangle.stroke();
+            };
+        };
+
+        let rectangle = new Rectangle(25, 25, 200, 100);
+        rectangle.createRectangle();
+        rectangle.getPerimeter();
+        rectangle.getArea();
+        rectangle.changeHeight(50);
+        rectangle.changeWidth(100);
+        rectangle.createRectangle();
+        rectangle.getPerimeter();
+        rectangle.getArea();
+    </script>
+</body>
+</html>
