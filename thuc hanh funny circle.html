@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<canvas id="mycanvas" width="1368" height="768" style="border:1px solid #d3d3d3"></canvas>
+<script>
+    function Circle(x,y,radius) {
+        this.x=x;
+        this.y=y;
+        this.radius=radius;
+    }
+    function getRandomColor(){
+        var red = 10000;
+        var green = 0;
+        var blue = 10;
+        return "rgb(" + red + "," + blue + "," + green +")";
+    }
+
+    function CreatCircle() {
+        var y=innerHeight/2;
+        var x=innerWidth/2;
+        var dy=10;
+        var dx=10;
+        var ctx=document.getElementById("mycanvas").getContext("2d");
+        setInterval(function () {
+            y+=dy;
+            x+=dx;
+            if(y<50||y>768-50) {
+                dy = -dy;
+            }
+            if(x<50||x>1368-50) {
+                dx = -dx;
+            }
+            var color=getRandomColor();
+            var circle = new Circle(x,y,50);
+            ctx.clearRect(0,0,1368,768);
+            ctx.beginPath();
+            ctx.arc(circle.x ,circle.y ,circle.radius,0,2 * Math.PI);
+            ctx.fillStyle=color;
+            ctx.fill();
+        }, 15);
+
+    }
+    CreatCircle();
+</script>
+</body>
+</html>
