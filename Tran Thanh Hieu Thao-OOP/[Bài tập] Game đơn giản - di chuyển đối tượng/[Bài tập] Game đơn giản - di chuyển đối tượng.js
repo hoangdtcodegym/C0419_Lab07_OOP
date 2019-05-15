@@ -15,10 +15,10 @@ function Hero(image, top, left, size,speedx,speedy){
         if ( this.top == 20) {
             this.left += speedx;
         }
-        if ( this.left == window.innerWidth - this.size ){
+      if ( this.left == (window.innerWidth -(window.innerWidth%speedx)) - this.size ){
             this.top += speedy;
         }
-        if (this.top == window.innerHeight - this.size  ){
+        if (this.top == (window.innerHeight-(window.innerHeight%speedy)) - this.size  ){
             this.left -= speedx;
         }
         if (this.left == 20 ) {
@@ -29,7 +29,7 @@ function Hero(image, top, left, size,speedx,speedy){
 
 }
 
-let hero = new Hero("co-be-quang-khan-do.png", 20, 20, 200,1,1);
+let hero = new Hero("co-be-quang-khan-do.png", 20, 20, 200,5,5);
 
 function start(){
     hero.move();
