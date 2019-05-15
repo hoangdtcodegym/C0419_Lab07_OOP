@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="800" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    let HCN = function (h, w) {
+        this.h=h;
+        this.w=w;
+        this.setHeight = function (h) {
+            this.h = h;
+        };
+        this.setweidth = function (w) {
+            this.w = w;
+        };
+        this.getArea = function (w,h) {
+            return h*w;
+        };
+        this.getC = function (w,h) {
+            return 2*(h+w);
+        };
+        this.getHeight = function () {
+            return this.h;
+        };
+        this.getWeidth = function () {
+            return this.w;
+        }
+    };
+    let hcn1= new HCN();
+    let w=parseFloat(prompt("moi nhap chieu rong" ));
+    let h=parseFloat(prompt("moi nhap chieu cao" ));
+    hcn1.setweidth(w);
+    hcn1.setHeight(h);
+    let h1 = document.getElementById("canvas");
+    let hcn = h1.getContext("2d");
+    hcn.beginPath();
+    hcn.rect(0, 0, hcn1.getWeidth(),hcn1.getHeight());
+    hcn.fill();
+    hcn.font = "30px Arial";
+    hcn.fillText("dien tich HCN la: "+ hcn1.getArea(w,h),0,hcn1.getHeight()+30);
+    hcn.fillText("Chu vi HCN la: "+ hcn1.getC(w,h),0,hcn1.getHeight()+90);
+</script>
+</body>
+</html>

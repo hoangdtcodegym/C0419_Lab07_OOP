@@ -21,22 +21,23 @@
     }
 
     function CreatCircle() {
-        var y=innerHeight/2;
-        var x=innerWidth/2;
+        var y=Math.floor(Math.random()*768);
+        var x=Math.floor(Math.random()*1368);
+        var radius=Math.floor(Math.random()*50)
         var dy=10;
         var dx=10;
         var ctx=document.getElementById("mycanvas").getContext("2d");
         setInterval(function () {
             y+=dy;
             x+=dx;
-            if(y<50||y>768-50) {
+            if(y<radius||y>768-radius) {
                 dy = -dy;
             }
-            if(x<50||x>1368-50) {
+            if(x<radius||x>1368-radius) {
                 dx = -dx;
             }
             var color=getRandomColor();
-            var circle = new Circle(x,y,50);
+            var circle = new Circle(x,y,radius);
             ctx.clearRect(0,0,1368,768);
             ctx.beginPath();
             ctx.arc(circle.x ,circle.y ,circle.radius,0,2 * Math.PI);
