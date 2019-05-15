@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Class.css">
+</head>
+<body>
+<div class="Moblie">
+    <div class="isName" >Samsung</div>
+    <span id="batery">100</span>   <input type="button" id="isOn" value="On" onclick="isOn()">
+    <div class="isSMS">
+        <input type="text" width="180px" id="Msg" placeholder="Nhap tin nhan"><br>
+        <button onclick="Send()">Send</button>
+        <textarea rows="5" cols="20" id="Inbox"></textarea>
+        <textarea rows="5" cols="20" id="Outbox"></textarea>
+    </div>
+</div>
+<div class="Moblie">
+    <div class="isName" >Iphone</div>
+    <span id="batery1">100</span>   <input type="button" id="isOn1" value="On" onclick="isOn1()">
+    <div class="isSMS">
+        <input type="text" width="180px" id="Msg1" placeholder="Nhap tin nhan"><br>
+        <button onclick="Send1()">Send</button>
+        <textarea rows="5" cols="20" id="Inbox1"></textarea>
+        <textarea rows="5" cols="20" id="Outbox1"></textarea>
+    </div>
+</div>
+
+        <script src="Mobile.js"></script>
+</body>
+</html>

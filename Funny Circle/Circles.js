@@ -29,11 +29,6 @@ function createCircle() {
         cir.fillStyle = color;
         cir.fill();
 }
-function mutiCircle() {
-    for (let i=0;i<30;i++){
-        createCircle();
-    }
-}
 var dx=2;
 var dy=2;
 setInterval(function () {
