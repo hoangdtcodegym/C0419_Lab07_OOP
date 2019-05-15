@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Funny circles</title>
+    <title>bong</title>
 </head>
-<canvas id="myCanvar" width="1362px" height="2232" style="border: 1px crimson"></canvas>
 <body>
+<canvas id="bong" width="1000px" height="500px" style="border:1px solid #d3d3d3"></canvas>
 <script>
-    function Circles(x, y, radius) {
-        this.x = x;
-        this.y = y;
-        this.radius=radius;
+    let bong = document.getElementById("bong").getContext("2d");
+    var x = 20;
+    var y = 20;
+
+    function ball() {
+        bong.beginPath();
+        bong.arc(x, y, 20, 0, Math.PI * 2);
+        bong.fillstyle = "#ff0000";
+        bong.fill();
+        bong.closePath();
     }
-    function createCircle() {
-        var ctx= document.getElementById("myCanvar").getContext("2d");
-        var circles= new Circles(500,500,80);
-        ctx.beginPath();
-        ctx.arc(circles.x,circles.y,circles.radius,0,2*Math.PI);
-        ctx.fill()
+
+    function ball30() {
+        for (let i = 0; i < 30; i++) {
+            let bong = new ball();
+        }
     }
-    createCircle();
+
+    var dx = 2;
+    var dy = 2;
+    setInterval(function () {
+        bong.clearRect(0, 0, 1000, 500);
+        ball();
+        x += dx;
+        y += dy;
+        if (x < 20 || x > 1000 - 20) {
+            dx = -dx;
+        }
+        if (y < 20 || y > 500 - 20) {
+            dy = -dy;
+        }
+    }, 1);
 </script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình Vuông</title>
+</head>
+<canvas id="hinhVuong" width="1300px" height="800px"></canvas>
+<body>
+<script>
+    let canvas=document.getElementById("hinhVuong");
+    let vuong=canvas.getContext("2d");
+    function hinhvuong() {
+        vuong.rect(0,0,100,100);
+        vuong.stroke();
+        vuong.fillStyle="#0700ff";
+        vuong.fill();
+    }
+    function hinhCN() {
+        vuong.rect(0,200,100,50);
+        vuong.stroke();
+        vuong.fillStyle="#ff0000";
+        vuong.fill();
+    }
+    hinhvuong();
+    hinhCN();
+</script>
+</body>
+</html>

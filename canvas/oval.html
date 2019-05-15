@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oval</title>
+</head>
+<canvas id="oval" width="1300px" height="800px"></canvas>
+<body>
+<script>
+    let canvas=document.getElementById("oval");
+    let oval=canvas.getContext("2d");
+    function Oval() {
+        oval.ellipse(100,100,80,50,0,0,Math.PI*2);
+        oval.stroke();
+    }
+    Oval();
+</script>
+</body>
+</html>

@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+<canvas id="myCanvas" width="1000px" height="500px" style="border:1px solid #d3d3d3;">
     <script>
         function Circle(x, y, radius) {
             this.x = x;
@@ -30,10 +29,9 @@
             let radius = Math.floor(Math.random() * 80);
             let color = getRandomColor();
             let x = Math.random() * window.innerWidth;
-            // let y = Math.random() * window.innerHeight;
-            let y=50;
-            let circle = new Circle(50, y, 50);
-            ctx.clearRect(0,0,1368,768);
+            let y = Math.random() * window.innerHeight;
+            let circle = new Circle(x, y, radius);
+            ctx.clearRect(0, 0, 1368, 768);
             ctx.beginPath();
             ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
             ctx.fillStyle = color;
@@ -45,11 +43,11 @@
                 createCircle();
             }
         }
+
+
         setInterval(function () {
-                createCircle();
-                y+=2;
-                x+=2;
-            },1000);
+            createMultipleCircle();
+        }, 100);
 
 
     </script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình tròn</title>
+</head>
+<canvas id="hinhtron" ></canvas>
+<body>
+<script>
+    let canvas=document.getElementById("hinhtron");
+    let hinhtron=canvas.getContext("2d");
+    function ball() {
+        hinhtron.beginPath();
+        hinhtron.arc(20,20,20,0,Math.PI * 2);
+        hinhtron.fillStyle="#ff0000";
+        hinhtron.fill();
+        hinhtron.closePath();
+    }
+    ball();
+</script>
+</body>
+</html>
