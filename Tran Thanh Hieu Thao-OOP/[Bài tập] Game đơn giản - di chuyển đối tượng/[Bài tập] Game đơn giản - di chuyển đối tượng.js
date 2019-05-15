@@ -29,7 +29,7 @@ function Hero(image, top, left, size,speedx,speedy){
 
 }
 
-let hero = new Hero("co-be-quang-khan-do.png", 20, 20, 200,5,5);
+let hero = new Hero("co-be-quang-khan-do.png", 20, 20, 200,1,1);
 
 function start(){
     hero.move();
