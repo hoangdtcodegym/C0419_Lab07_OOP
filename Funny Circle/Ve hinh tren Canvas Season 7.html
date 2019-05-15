@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1200" height="600"></canvas>
+<script>
+    //Khoi tao ve
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    //Ve hinh tron
+    ctx.arc(95,50,40,0,2*Math.PI);
+    //Hinh chu nhat
+    ctx.rect(400,400,100,60);
+    //Hinh vuong
+    ctx.rect(200,100,80,80);
+    ctx.moveTo(200,200);
+    ctx.lineTo(250,300);
+    ctx.lineTo(300,270);
+    ctx.lineTo(200,200);
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.ellipse(600,500,80,40,0,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+</script>
+
+</body>
+</html>
