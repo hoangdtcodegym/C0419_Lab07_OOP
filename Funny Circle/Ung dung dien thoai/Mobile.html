@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Class.css">
+</head>
+<body>
+<div  class="Moblie">
+    <div class="isName" >XiaoMI</div>
+    <span id="bateryXiaoMI">100</span>   <input type="button" id="XiaoMI" value="On" onclick="isOnXiaoMI()">
+    <div class="isSMS">
+       <input type="text" width="180px" id="MsgXiaoMI" placeholder="Nhap tin nhan">
+        <button onclick="SendXiaoMi()">Send</button>
+        <p>Input</p>
+        <textarea rows="5" cols="20" id="InboxXiaoMI"></textarea>
+        <p>Outbox</p>
+        <textarea rows="5" cols="20" id="OutboxXiaoMI"></textarea>
+        <input type="button" value="Charge" onclick="ChargeXiaoMi()">
+    </div>
+</div>
+<div class="Moblie">
+    <div class="isName" >Hawei</div>
+    <span id="bateryHawei">100</span>   <input type="button" id="Hawei" value="On" onclick="isOnHawei()">
+    <div class="isSMS">
+        <input type="text" width="180px" id="MsgHawei" placeholder="Nhap tin nhan"><br>
+        <button onclick="SendHawei()">Send</button>
+        <p>Input</p>
+        <textarea rows="5" cols="20" id="InboxHawei"></textarea>
+        <p>Outbox</p>
+        <textarea rows="5" cols="20" id="OutboxHawei"></textarea>
+        <input type="button" value="Charge" onclick="ChargeHawei()">
+    </div>
+</div>
+
+        <script src="Mobile.js"></script>
+</body>
+</html>
