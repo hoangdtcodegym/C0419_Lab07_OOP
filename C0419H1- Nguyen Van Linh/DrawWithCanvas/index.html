@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ trên canvas hình tròn, vuông, chữ nhật, tam giac ....</title>
+</head>
+<body>
+<canvas id="myCanvas" width="700" height="500" style="border:1px solid #000000;"></canvas>
+
+</canvas>
+<script>
+    function Rectangle(a,b, left, top) {
+        this.a = a;
+        this.b = b;
+        this.left = left;
+        this.top = top;
+        this.getDrawRectangle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let color = getRandomColor();
+            ctx.moveTo(0,0);
+            ctx.strokeRect(this.left, this.top, this.a, this.b);
+            ctx.fillRect( this.a + 50, this.top, this.a, this.b);
+            ctx.fill();
+            ctx.fillStyle = color;
+            ctx.closePath();
+        }
+    }
+    let rectangle = new Rectangle(200, 100, 10, 30);
+    rectangle.getDrawRectangle();
+
+    function Circle(x, y, radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.getDrawCircle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let color = getRandomColor();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            // ctx.fill();
+            ctx.fill();
+            ctx.fillStyle = color;
+            ctx.closePath();
+        }
+    }
+    let circle = new Circle(100, 200, 50);
+    circle.getDrawCircle();
+    
+    function Triangle(x) {
+        this.x = x;
+
+        this.DrawTriangle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let color = getRandomColor();
+            ctx.beginPath();
+            ctx.moveTo(this.x/2, this.x/2);
+
+            ctx.lineTo(this.x/4, this.x);
+            ctx.lineTo(this.x, this.x);
+            ctx.lineTo(this.x/2, this.x/2);
+
+            // ctx.stroke();
+            ctx.fill();
+            ctx.fillStyle = color;
+            ctx.closePath();
+        }
+    }
+    let triangle = new Triangle(450);
+    triangle.DrawTriangle();
+
+
+    function Oval(x, y, radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.getOval = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let color = getRandomColor();
+            ctx.beginPath();
+            // ctx.arc(this.x, this.y, this.radius, 0 , 2 * Math.PI);
+            ctx.ellipse(this.x, this.y, this.radius, this.radius*2, 2*Math.PI / 4, 0 ,2*Math.PI);
+
+
+
+            // ctx.fill();
+            ctx.fill();
+            ctx.fillStyle = color;
+            ctx.closePath();
+        }
+    }
+    let oval = new Oval(500, 300, 50);
+    oval.getOval();
+
+
+
+    function getRandomHex() {
+        return Math.floor(Math.random()*255);
+    }
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb(" +red + "," + green + "," + blue+")";
+    }
+    
+</script>
+</body>
+</html>
