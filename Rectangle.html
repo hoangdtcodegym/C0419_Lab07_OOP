@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="HCN"></canvas>
+<script>
+    let Rectangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+        this.dientich = function (width, height) {
+            return width * height;
+        };
+        this.chuvi = function (width, height) {
+            return 2 * width * height;
+        };
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+    };
+    let hcn = new Rectangle(3222, 433);
+    let Width = hcn.getWidth();
+    let Height = hcn.getHeight();
+    let S = hcn.dientich(Width, Height);
+    let C = hcn.chuvi(Width, Height);
+    alert("S: " + S + "/ C: " + C);
+    Width = parseFloat(prompt("Width"));
+    Height = parseFloat(prompt("Height"));
+    let c = document.getElementById("HCN");
+    let ctx = c.getContext("2d");
+    ctx.fillStyle = "#FF0023";
+    ctx.fillRect(0, 0, Width, Height);
+</script>
+</body>
+</html>

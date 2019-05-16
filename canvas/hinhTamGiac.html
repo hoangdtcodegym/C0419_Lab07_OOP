@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TamGiac</title>
+</head>
+<canvas id="tamGiac" width="1300px" height="800px"></canvas>
+<body>
+<script>
+    let canvas=document.getElementById("tamGiac");
+    let tamGiac=canvas.getContext("2d");
+    function TamGiac() {
+        tamGiac.strokeStyle='#ff0000';
+        tamGiac.moveTo(0,0);
+        tamGiac.lineTo(50,50);
+        tamGiac.lineTo(0,50);
+        tamGiac.lineTo(0,0);
+        tamGiac.stroke();
+        tamGiac.fillStyle='#ff0000';
+        tamGiac.fill();
+    }
+    TamGiac();
+</script>
+</body>
+</html>
