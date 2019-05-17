@@ -1,0 +1,10 @@
+.mobile{
+    width: 200px;
+    height: auto;
+    border:4px solid red;
+    float: left;
+    margin-right: 100px;
+}
+.center{
+    margin-left: 18px;
+}

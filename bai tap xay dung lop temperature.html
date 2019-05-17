@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="nhap" type="number">
+<button onclick="chuyen()">Chuyen</button>
+<p id="hienthi"></p>
+<p id="hienthi1"></p>
+<script>
+    function chuyen() {
+        let temp = function (nhietdo) {
+            this.nhietdo = nhietdo;
+            this.getchuyenF = function () {
+                return (this.nhietdo * 1.8) + 32;
+            };
+            this.getchuyenK = function () {
+                return this.nhietdo + 273.15
+            };
+            this.setNhietdo = function (a) {
+                this.nhietdo = a;
+            }
+        };
+
+        let Temp = new temp();
+        let b = parseFloat(document.getElementById("nhap").value);
+        Temp.setNhietdo(b);
+        document.getElementById("hienthi").innerHTML = "do F la: " + Temp.getchuyenF();
+        document.getElementById("hienthi1").innerHTML = "do K la: " + Temp.getchuyenK();
+    }
+</script>
+</body>
+</html>
