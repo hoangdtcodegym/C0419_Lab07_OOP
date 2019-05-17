@@ -1,0 +1,5 @@
+cach nhan tin: 
+- nhap dia chi dien thoai can gui toi ( nokia, iphone, bphone) tai o nho phia tren
+- nhap noi dung tin nhan tai o to phia duoi
+- nhan nut create msg
+- nhan nut send msg

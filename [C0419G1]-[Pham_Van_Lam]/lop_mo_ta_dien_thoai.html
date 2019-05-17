@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lop_mo_ta_dien_thoai</title>
+    <style>
+        .phone {
+            background-color: dimgray;
+            color:gold;
+            text-align: center;
+            border-radius: 10px;
+            display: inline-block;
+            border: solid 1px black;
+            width: 400px;
+            height: 600px;
+            margin: 20px;
+
+        }
+
+        .screen {
+            border-radius: 10px;
+            border: solid 1px white;
+            width: 350px;
+            height: 400px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+        }
+
+        .sourcebtn {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .On {
+           background-color: whitesmoke;
+        }
+
+        .battery {
+            border-radius: 5px;
+
+            border: solid 1px ghostwhite;
+            margin: 10px;
+            width: 100px;
+            height: 30px;
+            overflow: hidden;
+            text-align: center;
+            position: absolute;
+            right: 5px;
+        }
+        .sendtoinput{
+            border-radius: 5px;
+            border: solid 1px cornflowerblue;
+            margin: 10px;
+            width: 150px;
+            height: 30px;
+            overflow: hidden;
+            position: absolute;
+            left: 10px;
+            padding-left:5px;
+        }
+
+        .textarea {
+            border-radius: 5px;
+            background-color:navajowhite;
+            width: 84%;
+            height: 50%;
+            margin-top: 50px;
+            margin-left: 20px;
+            padding: 0px;
+        }
+
+        .textarea > textarea {
+            border-radius: 5px;
+
+            vertical-align: top;
+            width: 100%;
+            height: 70%;
+            margin: 0;
+            padding: 10px;
+            border: solid 1px black;
+        }
+
+        .Charging {
+            background-color: aqua;
+        }
+        .Used{
+            background-color: hotpink;
+        }
+        .controlbutton{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding:0;
+            height: 40px;
+        }
+        button{
+            border-radius: 5px;
+            width:100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="phone" id="nokia">
+    <h2>NOKIA</h2>
+    <div class="screen" id="screen1">
+        <div >
+            <input class="sendtoinput" id="sendto1" type="text">
+            <input class="battery" type="textarea" id="battery1" disabled>
+        </div>
+        <div class="textarea" id="inputmes1">
+            <textarea name="" id="textmsgscreen1" cols="30" rows="10"></textarea>
+            <textarea disabled id="outputmsg1"></textarea>
+        </div>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="turnonbtn1">Turn ON</button>
+        <button type="button" class="sourcebtn" id="turnoffbtn1">Turn OFF</button>
+        <button type="button" class="sourcebtn" id="chargebtn1">Charge</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="createmsgbtn1">Create MSG</button>
+        <button type="button" class="sourcebtn" id="sendmsgbtn1">Send MSG</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="showinboxbtn1">Show Inbox</button>
+        <button type="button" class="sourcebtn" id="showoutboxbtn1">Show Outbox</button>
+
+
+    </div>
+</div>
+
+<div class="phone" id="iphone">
+    <h2>IPHONE</h2>
+    <div class="screen" id="screen2">
+        <div>
+            <input class="sendtoinput" id="sendto2" type="text">
+            <input class="battery" type="textarea" id="battery2" disabled>
+        </div>
+        <div class="textarea" id="inputmes2">
+            <textarea name="" id="textmsgscreen2" cols="30" rows="10"></textarea>
+            <textarea disabled id="outputmsg2"></textarea>
+        </div>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="turnonbtn2">Turn ON</button>
+        <button type="button" class="sourcebtn" id="turnoffbtn2">Turn OFF</button>
+        <button type="button" class="sourcebtn" id="chargebtn2">Charge</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="createmsgbtn2">Create MSG</button>
+        <button type="button" class="sourcebtn" id="sendmsgbtn2">Send MSG</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="showinboxbtn2">Show Inbox</button>
+        <button type="button" class="sourcebtn" id="showoutboxbtn2">Show Outbox</button>
+
+
+    </div>
+</div>
+
+<div class="phone" id="bphone">
+    <h2>BPHONE</h2>
+    <div class="screen" id="screen3">
+        <div>
+            <input class="sendtoinput" id="sendto3" type="text">
+            <input class="battery" type="textarea" id="battery3" disabled>
+        </div>
+        <div class="textarea" id="inputmes3">
+            <textarea name="" id="textmsgscreen3" cols="30" rows="10"></textarea>
+            <textarea disabled id="outputmsg3"></textarea>
+        </div>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="turnonbtn3">Turn ON</button>
+        <button type="button" class="sourcebtn" id="turnoffbtn3">Turn OFF</button>
+        <button type="button" class="sourcebtn" id="chargebtn3">Charge</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="createmsgbtn3">Create MSG</button>
+        <button type="button" class="sourcebtn" id="sendmsgbtn3">Send MSG</button>
+    </div>
+    <div class="controlbutton">
+        <button type="button" class="sourcebtn" id="showinboxbtn3">Show Inbox</button>
+        <button type="button" class="sourcebtn" id="showoutboxbtn3">Show Outbox</button>
+
+
+    </div>
+</div>
+
+
+<script>
+    function Mobile(name, battery) {
+        let self = this;
+        self.status = false;
+        self.name = name;
+        self.battery = battery;
+        self.draft = [];
+        this.inbox = [];
+        self.outbox = [];
+        self.message = "";
+        self.screen = "";
+        this.turnOnBtn = {};
+        this.turnOffBtn = {};
+        this.chargeBtn = {};
+        self.chargescreen = {};
+        this.createMsgBtn = {};
+        self.showMsgscreen = {};
+        self.textMsgscreen = {};
+        self.sendMsgbtn = {};
+        self.showinboxBtn = {};
+        self.showOutboxBtn = {};
+        self.sendToInput={};
+
+
+        this.checkStatus = function () {
+            if (this.status) return true;
+            else return false;
+        };
+        this.turnOn = function () {
+            self.status = true;
+            self.screen.classList.add("On");
+            self.chargescreen.value = self.battery;
+            self.battertyUsed();
+
+        };
+        this.turnOff = function () {
+            self.status = false;
+            self.screen.classList.remove("On");
+            if(!self.status) {
+                self.chargescreen.value = "";
+                self.chargescreen.classList.remove("Used")
+                self.sendToInput.value="";
+                console.log(self.sendToInput);
+                self.textMsgscreen.value="";
+                self.showMsgscreen.value="";
+
+
+            }
+        }
+        self.showBattery = function () {
+            self.chargescreen.value = self.battery;
+
+        };
+
+        this.chargeBattery = function () {
+
+            if (self.battery < 100) {
+                let x = setInterval(function () {
+                    self.chargescreen.classList.toggle("Charging");
+                    {
+                        if (self.battery >= 99) {
+                            clearInterval(x);
+                            self.battery = 99;
+                            self.chargescreen.classList.add("Charging");
+                            self.showBattery();
+                        }
+                        self.battery++;
+                        self.showBattery();
+
+                    }
+                }, 3000);
+            }
+
+
+        }
+        this.createMsg = function (msg,address) {
+            if (!self.status) alert("Phone Off");
+            else {
+                let d=new Date;
+                time=d.getFullYear() +"/"+d.getMonth()+"/"+d.getDay()+" " +d.getHours()+":"+d.getMinutes();
+                self.message = "[" +time+"]"+"["+self.name +"]"+"---"+msg;
+                self.sendToInput=address;
+                this.showMsg();
+                self.draft.push(msg)
+            }
+
+
+        };
+
+        this.showMsg = function () {
+            self.showMsgscreen.value = "Created message:"+ "\n"+ self.message;
+        };
+        this.getMsg = function (msg) {
+            if (!this.status) alert("Phone Off");
+            else this.inbox.push(msg);
+        };
+        this.sendMsg = function () {
+            if (!self.status) alert("Phone Off");
+            else {
+                if(self.sendToInput==self.name) alert("Không gửi được!")
+                else{
+                    if(self.sendToInput==iphone.name) {
+                        iphone.inbox.push(self.message);
+                        iphone.showinboxBtn.classList.add("Used")
+                    }
+                    if(self.sendToInput==nokia.name) {
+                        nokia.inbox.push(self.message);
+                        nokia.showinboxBtn.classList.add("Used")
+
+                    }
+                    if(self.sendToInput==bphone.name) {
+                        bphone.inbox.push(self.message);
+                        bphone.showinboxBtn.classList.add("Used")
+
+                    }
+                    self.outbox.push(self.message);
+                }
+
+            }
+
+        };
+        this.showInbox = function () {
+            if (!self.status) alert("Phone Off");
+            else {
+                self.showinboxBtn.classList.remove("Used");
+                result = "INBOX: "+"\n";
+                for (i = 0; i < self.inbox.length; i++) {
+                    result += self.inbox[i] + "\n"
+                }
+                self.showMsgscreen.value = result;
+            }
+
+
+        };
+        this.showOutbox = function () {
+            if (!self.status) alert("Phone Off");
+            else {
+                result = "OUTBOX: "+"\n";
+                for (i = 0; i < self.outbox.length; i++) {
+                    result += self.outbox[i] + "\n"
+                }
+                self.showMsgscreen.value = result;
+            }
+        };
+        self.battertyUsed = function () {
+            if (!this.status) alert("Phone Off");
+            else {
+                if (self.battery < 100) {
+                    let x = setInterval(function () {
+                        if(self.status){
+                            self.chargescreen.classList.toggle("Used");
+                            {
+                                if (self.battery <=0) {
+                                    clearInterval(x);
+                                    self.battery = 0;
+                                    self.chargescreen.classList.add("Used");
+                                    self.showBattery();
+                                }
+                                if(!self.status){
+                                    clearInterval(x);
+
+
+                                }
+                                self.battery--;
+                                self.showBattery();
+
+                            }
+                        }
+
+                    }, 8000);
+                }
+            }
+        }
+    }
+
+    let nokia = new Mobile("nokia", 95);
+    nokia.screen = document.getElementById("screen1");
+    nokia.turnOnBtn = document.getElementById("turnonbtn1");
+    nokia.turnOnBtn.onclick=function(){
+        nokia.sendToInput=document.getElementById("sendto1");
+        nokia.textMsgscreen = document.getElementById("textmsgscreen1");
+        nokia.turnOn();
+    };
+    nokia.turnOffBtn = document.getElementById("turnoffbtn1");
+    nokia.turnOffBtn.onclick = function () {
+        nokia.turnOff();
+    };
+    nokia.chargescreen = document.getElementById("battery1");
+    nokia.chargeBtn = document.getElementById("chargebtn1");
+    nokia.chargeBtn.addEventListener("click", nokia.chargeBattery);
+    nokia.createMsgBtn = document.getElementById("createmsgbtn1");
+    nokia.createMsgBtn.onclick = function () {
+        nokia.sendToInput=document.getElementById("sendto1");
+        nokia.textMsgscreen = document.getElementById("textmsgscreen1");
+        nokia.createMsg(nokia.textMsgscreen.value,nokia.sendToInput.value);
+    };
+
+    nokia.showMsgscreen = document.getElementById("outputmsg1");
+    nokia.sendMsgbtn = document.getElementById("sendmsgbtn1");
+    nokia.sendMsgbtn.onclick = function () {
+        nokia.sendMsg();
+    };
+    nokia.showinboxBtn = document.getElementById("showinboxbtn1");
+    nokia.showinboxBtn.onclick = function () {
+        nokia.showInbox();
+    };
+    nokia.showOutboxBtn = document.getElementById("showoutboxbtn1");
+    nokia.showOutboxBtn.onclick = function () {
+        nokia.showOutbox();
+    };
+    console.log(nokia.sendToInput);
+
+
+
+
+    let iphone = new Mobile("iphone", 95);
+    iphone.screen = document.getElementById("screen2");
+    iphone.turnOnBtn = document.getElementById("turnonbtn2");
+    iphone.turnOnBtn.onclick=function(){
+        iphone.sendToInput=document.getElementById("sendto2");
+        iphone.textMsgscreen = document.getElementById("textmsgscreen2");
+        iphone.turnOn();
+    };
+    iphone.turnOffBtn = document.getElementById("turnoffbtn2");
+    iphone.turnOffBtn.onclick = function () {
+        iphone.turnOff();
+    };
+    iphone.chargescreen = document.getElementById("battery2");
+    iphone.chargeBtn = document.getElementById("chargebtn2");
+    iphone.chargeBtn.addEventListener("click", iphone.chargeBattery);
+    iphone.createMsgBtn = document.getElementById("createmsgbtn2");
+    iphone.createMsgBtn.onclick = function () {
+        iphone.sendToInput=document.getElementById("sendto2");
+        iphone.textMsgscreen = document.getElementById("textmsgscreen2");
+        iphone.createMsg(iphone.textMsgscreen.value,iphone.sendToInput.value);
+    };
+    iphone.showMsgscreen = document.getElementById("outputmsg2");
+    iphone.sendMsgbtn = document.getElementById("sendmsgbtn2");
+    iphone.sendMsgbtn.onclick = function () {
+        iphone.sendMsg();
+    };
+    iphone.showinboxBtn = document.getElementById("showinboxbtn2");
+    iphone.showinboxBtn.onclick = function () {
+        iphone.showInbox();
+    };
+    iphone.showOutboxBtn = document.getElementById("showoutboxbtn2");
+    iphone.showOutboxBtn.onclick = function () {
+        iphone.showOutbox();
+    }
+
+
+    let bphone = new Mobile("bphone", 95);
+    bphone.screen = document.getElementById("screen3");
+    bphone.turnOnBtn = document.getElementById("turnonbtn3");
+    bphone.turnOnBtn.onclick=function(){
+        bphone.sendToInput=document.getElementById("sendto3");
+        bphone.textMsgscreen = document.getElementById("textmsgscreen3");
+        bphone.turnOn();
+    };
+    bphone.turnOffBtn = document.getElementById("turnoffbtn3");
+    bphone.turnOffBtn.onclick = function () {
+        bphone.turnOff();
+    };
+    bphone.chargescreen = document.getElementById("battery3");
+    bphone.chargeBtn = document.getElementById("chargebtn3");
+    bphone.chargeBtn.addEventListener("click", bphone.chargeBattery);
+    bphone.createMsgBtn = document.getElementById("createmsgbtn3");
+    bphone.createMsgBtn.onclick = function () {
+        bphone.sendToInput=document.getElementById("sendto3");
+        bphone.textMsgscreen = document.getElementById("textmsgscreen3");
+        bphone.createMsg(bphone.textMsgscreen.value,bphone.sendToInput.value);
+    };
+    bphone.showMsgscreen = document.getElementById("outputmsg3");
+    bphone.sendMsgbtn = document.getElementById("sendmsgbtn3");
+    bphone.sendMsgbtn.onclick = function () {
+        bphone.sendMsg();
+    };
+    bphone.showinboxBtn = document.getElementById("showinboxbtn3");
+    bphone.showinboxBtn.onclick = function () {
+        bphone.showInbox();
+    };
+    bphone.showOutboxBtn = document.getElementById("showoutboxbtn3");
+    bphone.showOutboxBtn.onclick = function () {
+        bphone.showOutbox();
+    }
+
+
+
+</script>
+
+</body>
+
+</html>
