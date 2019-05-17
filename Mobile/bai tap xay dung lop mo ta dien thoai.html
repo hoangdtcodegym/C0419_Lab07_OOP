@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+<div class="mobile">
+    <div class="center">
+    <h1>Nokia</h1>
+    Pin:<span id="pinNokia"></span><br>
+    <button onclick="sac1()">sac</button>
+    <input type="button" onclick="onoff1()" value="On" id="onoffNokia"><br>
+    Hop thu den:
+    <textarea readonly id="inboxNokia"></textarea><br>
+    Hop thu di:
+    <textarea readonly id="outboxNokia"></textarea>
+    <br>
+    Nhan tin:
+    <textarea id="nhapNokia"></textarea>
+    <button onclick="send1()">send</button>
+        <br><br></div></div>
+<div class="mobile">
+    <div class="center">
+    <h1>Samsung</h1>
+    Pin:<span id="pinSamsung"></span><br>
+    <button onclick="sac2()">sac</button>
+    <input type="button" onclick="onoff2()" value="On" id="onoffSamsung"><br>
+    Hop thu den:
+    <textarea readonly id="inboxSamsung"></textarea>
+    Hop thu di:
+    <textarea readonly id="outboxSamsung"></textarea>
+    <br>
+    Nhan tin:
+    <textarea id="nhapSamsung"></textarea>
+    <button onclick="send2()">send</button><br><br>
+    </div></div>
+<script>
+    var mobile = function (name) {
+        this.name = name;
+        this.battery = 90;
+        this.inbox = [];
+        this.outbox = [];
+        this.status = true;
+        this.msg = "";
+        this.checkStatus = function () {
+            if (this.status) {
+                console.log("dien thoai dang bat")
+            } else {
+                console.log("dien thoai dang tat")
+            }
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.chargeBattery = function () {
+            if (this.battery < 100) {
+                this.battery++;
+            }
+        };
+        this.writeSmg = function (message) {
+            this.msg = message;
+        };
+        this.send = function (phone) {
+            phone.inbox.push(this.msg);
+            this.outbox.push(this.msg);
+        };
+        this.getOutbox = function () {
+            return this.outbox;
+        };
+        this.getInbox = function () {
+            return this.inbox;
+        };
+        this.OnOffMobile = function (mobile) {
+            if (mobile.status) {
+                document.getElementById("onoff" + mobile.name).value = "Off";
+                mobile.turnOff();
+                mobile.checkStatus();
+            } else {
+                document.getElementById("onoff" + mobile.name).value = "On";
+                mobile.turnOn();
+                mobile.checkStatus();
+            }
+        };
+        this.chargemobile = function (mobile) {
+            let sac = setInterval(function () {
+                mobile.chargeBattery();
+                document.getElementById("pin" + mobile.name).innerHTML = mobile.battery;
+                if (mobile.battery >= 100) {
+                    clearInterval(sac);
+                }
+            }, 300)
+        };
+        this.sendMessage = function (mobile, phone) {
+            if (mobile.status) {
+                if (mobile.battery > 0) {
+                    mobile.battery--;
+                    document.getElementById("pin" + mobile.name).innerHTML = mobile.battery;
+                    mobile.writeSmg(document.getElementById("nhap" + mobile.name).value);
+                    mobile.send(phone);
+                    document.getElementById("inbox" + phone.name).innerHTML = phone.getInbox();
+                    document.getElementById("outbox" + mobile.name).innerHTML = mobile.getOutbox();
+                    document.getElementById("nhap" + mobile.name).value = "";
+                } else {
+                    alert("sac pin");
+                }
+            }
+        }
+    };
+    let Nokia = new mobile("Nokia");
+    let Samsung = new mobile("Samsung");
+    document.getElementById("pinNokia").innerHTML = Nokia.battery;
+    document.getElementById("pinSamsung").innerHTML = Samsung.battery;
+
+    function send1() {
+        Nokia.sendMessage(Nokia, Samsung)
+    }
+
+    function send2() {
+        Samsung.sendMessage(Samsung, Nokia)
+    }
+
+    function sac1() {
+        Nokia.chargemobile(Nokia);
+    }
+
+    function sac2() {
+        Samsung.chargemobile(Samsung);
+    }
+
+    function onoff1() {
+        Nokia.OnOffMobile(Nokia);
+    }
+
+    function onoff2() {
+        Samsung.OnOffMobile(Samsung);
+    }
+</script>
+</body>
+</html>
