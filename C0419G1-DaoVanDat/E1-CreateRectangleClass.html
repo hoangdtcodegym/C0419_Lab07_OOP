@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+
+
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width='1000px' height='500px' style="border: 1px solid #d3d3d3;"></canvas>
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    //khởi tạo mảng để lưu trữ các quả bóng
+    let circleArray = [];
+    //định nghĩa đối tượng HCN
+    function Rectangle(a, b) {
+        this.a = a;
+        this.b = b;
+        this.getArea =a*b ;
+        this.getPerimeter = (a+b)*2;
+        this.draw = function (x_coordinate,y_coordinate) {
+            // let x=Math.floor(Math.random()*500);
+            // let y=Math.floor(Math.random()*500);
+            let x=x_coordinate;
+            let y=y_coordinate;
+            ctx.beginPath();
+            ctx.rect(x,y,this.a,this.b);
+            ctx.stroke();
+            ctx.closePath();
+        };
+    }
+    //hàm để chọn ngẫu nhiên các số từ 0 đến 255
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+    //hàm để chọn ngẫu nhiên màu (rgb('red','green','blue') dựa vào mã ngẫu nhiên (0-255) đã chọn ở trên
+
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return 'rgb(' + red + ',' + green + ',' + blue + ')';
+    }
+    //khoi tao HCN
+    let rect =new Rectangle(200,300);
+    rect.draw(100,100);
+    //gan lai kich thuoc
+    rect.a=200;
+    rect.b=200;
+    rect.draw(0,0);
+</script>
+</body>
+</html>
